@@ -1,0 +1,12 @@
+version: '2'
+
+services:
+
+  # nginx container
+  nginx:
+    build: ./docker/nginx/
+    ports:
+      - 8080:80
+    volumes:
+      - ./docroot:/var/www/html/
+      - ./logs/nginx:/var/log/nginx/
