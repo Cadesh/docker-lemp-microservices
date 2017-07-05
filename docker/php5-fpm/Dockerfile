@@ -3,7 +3,6 @@ FROM php:5.6-fpm
 
 # Add php configs file to the image
 COPY ./docker/php5-fpm/configs/php.ini /usr/local/etc/php/
-COPY ./docker/php5-fpm/configs/php-fpm.conf /usr/local/etc/php/
 
 # Install php extentions and dependencies
 RUN apt-get update && \
