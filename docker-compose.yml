@@ -10,3 +10,16 @@ services:
     volumes:
       - ./docroot:/var/www/html/
       - ./logs/nginx:/var/log/nginx/
+
+  # mysql container
+  mysql:
+    build: ./docker/mysql/
+    ports:
+      - 3306
+    environment:
+    - MYSQL_ROOT_PASSWORD=root@mysqlserver
+    volumes:
+      - ./docker/mysql/mysql-data:/var/lib/mysql/
+      - ./logs/mysql:/var/log/mysql/
+    volumes_from:
+      - php5-fpm
