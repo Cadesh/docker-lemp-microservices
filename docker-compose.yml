@@ -23,3 +23,12 @@ services:
       - ./logs/mysql:/var/log/mysql/
     volumes_from:
       - php5-fpm
+
+  # php-fpm container
+  php5-fpm:
+    build: ./docker/php5-fpm/
+    ports:
+      - 9000
+    volumes:
+      - ./docroot:/var/www/html/
+      - ./docker/php5-fpm/configs:/usr/local/etc/php/
